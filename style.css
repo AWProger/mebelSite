@@ -295,3 +295,35 @@ html {
     background: rgba(255, 255, 255, 0.9);
     padding: 8px 12px;
 }
+/* WORKS */
+
+.works {
+    padding: 100px 0;
+}
+
+.works_inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.works_title {
+    font-size: 36px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.works_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 24px;
+}
+.work_card {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.work_card img {
+    width: 100%;
+    display: block;
+}
