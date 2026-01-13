@@ -15,7 +15,6 @@
         <img src="./staticfiles/logo.png" alt="Логотип" class="header_logo">
 
         <nav class="header_nav">
-
             <div class="header_contacts">
                 <a href="tel:+74950000000" class="header_phone">+7 (495) 000-00-00</a>
                 <span class="header_time">Пн–Вс: 10:00–21:00</span>
@@ -46,14 +45,12 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero_inner">
-
             <div class="hero_text">
                 <h1>Мебель под заказ</h1>
                 <p>Создадим современную и практичную мебель по Вашим размерам</p>
@@ -87,6 +84,8 @@
 
             <div class="hero_slider">
                 <img src="./staticfiles/img/slide1.jpg" alt="">
+                <img src="./staticfiles/img/slide2.jpg" alt="" style="display:none">
+                <img src="./staticfiles/img/slide3.jpg" alt="" style="display:none">
             </div>
 
         </div>
@@ -121,7 +120,7 @@
         </div>
     </section>
 
-    <!-- PLACEHOLDERS -->
+    <!-- WORKS -->
     <section class="works" id="works">
         <div class="works_inner">
             <h2 class="works_title">Наши работы</h2>
@@ -137,19 +136,148 @@
                 <div class="work_card"><img src="./staticfiles/img/work8.JPG"></div>
             </div>
         </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="reviews_inner">
+            <h2 class="reviews_title">Отзывы клиентов</h2>
+
+            <div class="reviews_grid">
+                <div class="review_card">
+                    <p>"Отличная мебель! Всё сделали точно по размеру и в срок."</p>
+                    <span>— Иван П.</span>
+                </div>
+                <div class="review_card">
+                    <p>"Профессионально, аккуратно и качественно. Рекомендую!"</p>
+                    <span>— Мария С.</span>
+                </div>
+                <div class="review_card">
+                    <p>"Очень доволен результатом, кухня выглядит шикарно."</p>
+                    <span>— Алексей К.</span>
+                </div>
+                <div class="review_card">
+                    <p>"Сборка и доставка прошли без проблем."</p>
+                    <span>— Ольга Л.</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="reviews" id="reviews"></section>
-    <section class="faq" id="faq"></section>
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq_inner">
+            <h2 class="faq_title">Часто задаваемые вопросы</h2>
+
+            <ul class="faq_list">
+                <li class="faq_item">
+                    <button class="faq_question">Сколько времени занимает изготовление мебели?</button>
+                    <div class="faq_answer">
+                        Обычно срок изготовления составляет от 2 до 6 недель.
+                    </div>
+                </li>
+
+                <li class="faq_item">
+                    <button class="faq_question">Можно ли заказать нестандартные размеры?</button>
+                    <div class="faq_answer">
+                        Да, мы работаем по индивидуальным размерам.
+                    </div>
+                </li>
+
+                <li class="faq_item">
+                    <button class="faq_question">Есть ли гарантия?</button>
+                    <div class="faq_answer">
+                        Гарантия 12 месяцев на изделия и сборку.
+                    </div>
+                </li>
+
+                <li class="faq_item">
+                    <button class="faq_question">Вы делаете доставку и сборку?</button>
+                    <div class="faq_answer">
+                        Да, доставка и сборка включены.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta_inner">
+            <div class="cta_text">
+                <h2>Рассчитаем стоимость вашей мебели</h2>
+                <p>Оставьте заявку — мы свяжемся с вами и подготовим расчёт</p>
+            </div>
+
+            <form class="cta_form">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон" required>
+                <button type="submit">Получить расчёт</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- CONTACTS -->
+    <section class="contacts" id="contacts">
+        <div class="contacts_inner">
+            <h2 class="contacts_title">Контакты</h2>
+
+            <div class="contacts_content">
+                <div class="contacts_text">
+                    <p><strong>Телефон:</strong> <a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+                    <p><strong>Режим работы:</strong> Пн–Вс 10:00–21:00</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Примерная, 12</p>
+                </div>
+
+                <div class="contacts_map">
+                    <iframe src="https://www.google.com/maps?q=Москва&output=embed" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="footer" id="contacts">
+    <footer class="footer">
         <div class="footer_inner">
             <span class="footer_copy">© 2026 Мебель на заказ</span>
-            <a href="#top" class="footer_up">↑ Наверх</a>
+            <a href="#top" class="footer_up">↑</a>
+
         </div>
     </footer>
+
+
+
+    <script>
+        document.querySelectorAll('.faq_question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq_item');
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+    <script>
+        /* HERO SLIDER */
+        const slides = document.querySelectorAll('.hero_slider img');
+        let index = 0;
+
+        setInterval(() => {
+            slides[index].style.display = 'none';
+            index = (index + 1) % slides.length;
+            slides[index].style.display = 'block';
+        }, 4000);
+    </script>
+    <script>
+        const upBtn = document.querySelector('.footer_up');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                upBtn.classList.add('visible');
+            } else {
+                upBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
 
 </body>
 
