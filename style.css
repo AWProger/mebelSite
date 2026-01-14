@@ -43,6 +43,7 @@ ul {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 h1,
@@ -169,23 +170,59 @@ img {
 
 .dropdown {
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
-    display: none;
+    margin-top: -8px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
     background: var(--bg-secondary);
     min-width: 220px;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
-    padding: 8px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: var(--transition);
+    padding: 20px 8px 16px 8px;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    z-index: 1000;
+    pointer-events: none;
 }
 
-.nav_item:hover .dropdown {
-    display: block;
+.nav_item:hover .dropdown,
+.dropdown:hover {
+    visibility: visible;
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0s;
+    pointer-events: auto;
+}
+
+.nav_item:hover .dropdown.closed,
+.dropdown.closed:hover {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0s;
+    pointer-events: auto;
+}
+
+.dropdown.closed {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease 0.15s, transform 0.2s ease 0.15s, visibility 0s 0.35s;
+    pointer-events: none;
+}
+
+/* Невидимый мост между кнопкой и меню для плавного перехода */
+.nav_item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
+    z-index: 998;
+    pointer-events: none;
 }
 
 .dropdown li a {
@@ -194,12 +231,19 @@ img {
     color: var(--text-main);
     border-radius: 8px;
     transition: var(--transition);
+    position: relative;
+    z-index: 1001;
+    pointer-events: auto;
 }
 
 .dropdown li a:hover {
     background: var(--bg-light);
     color: var(--accent);
     padding-left: 20px;
+}
+
+.dropdown li:last-child a {
+    margin-bottom: 4px;
 }
 
 /* ===== HERO ===== */
@@ -1183,5 +1227,10 @@ img {
         width: 48px;
         height: 48px;
         font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+    .nav_menu {
+        display: none;
     }
 }
