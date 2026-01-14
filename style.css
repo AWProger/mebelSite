@@ -45,7 +45,9 @@ html {
     scroll-behavior: smooth;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Playfair Display', serif;
     letter-spacing: 0.3px;
     font-weight: 600;
@@ -151,7 +153,7 @@ img {
     position: relative;
 }
 
-.nav_menu > li > a {
+.nav_menu>li>a {
     display: block;
     padding: 12px 24px;
     color: var(--text-main);
@@ -160,7 +162,7 @@ img {
     transition: var(--transition);
 }
 
-.nav_menu > li > a:hover {
+.nav_menu>li>a:hover {
     background: var(--bg-light);
     color: var(--accent);
 }
@@ -653,6 +655,7 @@ img {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -874,13 +877,13 @@ img {
     .hero_text h1 {
         font-size: 52px;
     }
-    
+
     .categories_grid,
     .works_grid,
     .reviews_grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .works_inner {
         padding: 0;
     }
@@ -890,27 +893,27 @@ img {
     .header {
         padding: 20px 30px;
     }
-    
+
     .header_nav {
         gap: 30px;
     }
-    
+
     .hero {
         padding: 80px 30px;
     }
-    
+
     .hero_inner {
         gap: 50px;
     }
-    
+
     .hero_text h1 {
         font-size: 44px;
     }
-    
+
     .hero_slider {
         height: 400px;
     }
-    
+
     .categories,
     .works,
     .reviews,
@@ -919,7 +922,7 @@ img {
     .cta {
         padding: 80px 30px;
     }
-    
+
     .categories_title,
     .works_title,
     .reviews_title,
@@ -927,12 +930,12 @@ img {
     .contacts_title {
         font-size: 40px;
     }
-    
+
     .categories_grid,
     .reviews_grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .works_grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -945,54 +948,54 @@ img {
         justify-content: space-between;
         padding: 16px 20px;
     }
-    
+
     .header_logo {
         width: 70px;
     }
-    
+
     .header_nav {
         gap: 15px;
     }
-    
+
     .header_contacts {
         display: none;
     }
-    
+
     .nav_menu {
         display: none;
     }
-    
+
     .social {
         padding: 8px 12px;
         font-size: 13px;
     }
-    
+
     .social span {
         display: none;
     }
-    
+
     .hero {
         padding: 60px 20px;
     }
-    
+
     .hero_inner {
         flex-direction: column;
         gap: 40px;
     }
-    
+
     .hero_text h1 {
         font-size: 36px;
     }
-    
+
     .hero_text p {
         font-size: 18px;
     }
-    
+
     .hero_slider {
         width: 100%;
         height: 350px;
     }
-    
+
     .categories,
     .works,
     .reviews,
@@ -1001,7 +1004,7 @@ img {
     .cta {
         padding: 60px 20px;
     }
-    
+
     .categories_title,
     .works_title,
     .reviews_title,
@@ -1010,44 +1013,44 @@ img {
         font-size: 32px;
         margin-bottom: 40px;
     }
-    
+
     .categories_grid,
     .works_grid,
     .reviews_grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     .category_card,
     .work_card {
         height: 240px;
     }
-    
+
     .cta_inner {
         flex-direction: column;
         gap: 40px;
     }
-    
+
     .cta_text h2 {
         font-size: 32px;
     }
-    
+
     .cta_form {
         flex-direction: column;
         width: 100%;
     }
-    
+
     .cta_form input,
     .cta_form button {
         width: 100%;
         padding: 18px 24px;
     }
-    
+
     .contacts_content {
         flex-direction: column;
         gap: 40px;
     }
-    
+
     .contacts_map iframe {
         min-height: 300px;
     }
@@ -1057,64 +1060,64 @@ img {
     .header {
         padding: 12px 16px;
     }
-    
+
     .hero {
         padding: 40px 16px;
     }
-    
+
     .hero_text h1 {
         font-size: 28px;
     }
-    
+
     .hero_text p {
         font-size: 16px;
         margin-bottom: 30px;
     }
-    
+
     .hero_slider {
         height: 280px;
     }
-    
+
     .slider_pagination {
         bottom: 16px;
         gap: 10px;
     }
-    
+
     .slider_dot {
         width: 10px;
         height: 10px;
     }
-    
+
     .slider_dot.active {
         width: 24px;
     }
-    
+
     .works_pagination {
         margin-top: 40px;
         gap: 10px;
     }
-    
+
     .pagination_dot {
         width: 10px;
         height: 10px;
     }
-    
+
     .pagination_dot.active {
         width: 24px;
     }
-    
+
     .adv_item {
         padding: 16px;
     }
-    
+
     .adv_item strong {
         font-size: 16px;
     }
-    
+
     .adv_item span {
         font-size: 14px;
     }
-    
+
     .categories,
     .works,
     .reviews,
@@ -1123,7 +1126,7 @@ img {
     .cta {
         padding: 50px 16px;
     }
-    
+
     .categories_title,
     .works_title,
     .reviews_title,
@@ -1132,50 +1135,50 @@ img {
         font-size: 28px;
         margin-bottom: 30px;
     }
-    
+
     .categories_grid,
     .works_grid,
     .reviews_grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-    
+
     .category_card,
     .work_card {
         height: 220px;
     }
-    
+
     .category_card span {
         font-size: 18px;
         padding: 10px 16px;
     }
-    
+
     .review_card {
         padding: 24px;
     }
-    
+
     .cta_text h2 {
         font-size: 26px;
     }
-    
+
     .cta_text p {
         font-size: 16px;
     }
-    
+
     .faq_question {
         padding: 20px;
         font-size: 16px;
     }
-    
+
     .faq_answer {
         padding: 0 20px 20px;
         font-size: 15px;
     }
-    
+
     .footer {
         padding: 24px 16px;
     }
-    
+
     .footer_up {
         width: 48px;
         height: 48px;
