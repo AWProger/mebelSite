@@ -89,9 +89,14 @@
             </div>
 
             <div class="hero_slider">
-                <img src="./staticfiles/img/slide1.jpg" alt="">
-                <img src="./staticfiles/img/slide2.jpg" alt="" style="display:none">
-                <img src="./staticfiles/img/slide3.jpg" alt="" style="display:none">
+                <img src="./staticfiles/img/slide1.JPG" alt="Мебель на заказ">
+                <img src="./staticfiles/img/slide2.jpg" alt="Мебель на заказ">
+                <img src="./staticfiles/img/slide3.JPG" alt="Мебель на заказ">
+                <div class="slider_pagination">
+                    <button class="slider_dot active" data-slide="0"></button>
+                    <button class="slider_dot" data-slide="1"></button>
+                    <button class="slider_dot" data-slide="2"></button>
+                </div>
             </div>
 
         </div>
@@ -104,22 +109,22 @@
 
             <div class="categories_grid">
                 <div class="category_card">
-                    <img src="./staticfiles/img/category-kitchen.jpg" alt="">
+                    <img src="./staticfiles/img/work1.JPG" alt="Кухни">
                     <span>Кухни</span>
                 </div>
 
                 <div class="category_card">
-                    <img src="./staticfiles/img/category-wardrobe.jpg" alt="">
+                    <img src="./staticfiles/img/work2.jpg" alt="Шкафы">
                     <span>Шкафы</span>
                 </div>
 
                 <div class="category_card">
-                    <img src="./staticfiles/img/category-living.jpg" alt="">
+                    <img src="./staticfiles/img/work3.JPG" alt="Гостиные">
                     <span>Гостиные</span>
                 </div>
 
                 <div class="category_card">
-                    <img src="./staticfiles/img/category-office.jpg" alt="">
+                    <img src="./staticfiles/img/work4.jpg" alt="Офисная мебель">
                     <span>Офисная мебель</span>
                 </div>
             </div>
@@ -132,14 +137,24 @@
             <h2 class="works_title">Наши работы</h2>
 
             <div class="works_grid">
-                <div class="work_card"><img src="./staticfiles/img/work1.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work2.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work3.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work4.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work5.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work6.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work7.JPG"></div>
-                <div class="work_card"><img src="./staticfiles/img/work8.JPG"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work1.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work2.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work3.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work4.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work5.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work6.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work7.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="1"><img src="./staticfiles/img/work8.jpg" alt="Наша работа"></div>
+                <div class="work_card" data-page="2" style="display:none"><img src="./staticfiles/img/work9.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="2" style="display:none"><img src="./staticfiles/img/work10.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="2" style="display:none"><img src="./staticfiles/img/work13.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="2" style="display:none"><img src="./staticfiles/img/work14.JPG" alt="Наша работа"></div>
+                <div class="work_card" data-page="2" style="display:none"><img src="./staticfiles/img/work15.JPG" alt="Наша работа"></div>
+            </div>
+            
+            <div class="works_pagination">
+                <button class="pagination_dot active" data-page="1"></button>
+                <button class="pagination_dot" data-page="2"></button>
             </div>
         </div>
     </section>
@@ -264,13 +279,62 @@
     <script>
         /* HERO SLIDER */
         const slides = document.querySelectorAll('.hero_slider img');
-        let index = 0;
+        const sliderDots = document.querySelectorAll('.slider_dot');
+        let slideIndex = 0;
+        let slideInterval;
 
-        setInterval(() => {
-            slides[index].style.display = 'none';
-            index = (index + 1) % slides.length;
-            slides[index].style.display = 'block';
-        }, 4000);
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+            sliderDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        if (slides.length > 0) {
+            showSlide(0);
+            startSlider();
+
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    slideIndex = index;
+                    showSlide(slideIndex);
+                    clearInterval(slideInterval);
+                    startSlider();
+                });
+            });
+        }
+
+        /* WORKS PAGINATION */
+        const workCards = document.querySelectorAll('.work_card');
+        const paginationDots = document.querySelectorAll('.pagination_dot');
+
+        function showWorksPage(page) {
+            workCards.forEach(card => {
+                const cardPage = card.getAttribute('data-page');
+                card.style.display = cardPage === page ? 'block' : 'none';
+            });
+            paginationDots.forEach((dot, i) => {
+                dot.classList.toggle('active', (i + 1).toString() === page);
+            });
+        }
+
+        paginationDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const page = dot.getAttribute('data-page');
+                showWorksPage(page);
+            });
+        });
     </script>
     <script>
         const upBtn = document.querySelector('.footer_up');
